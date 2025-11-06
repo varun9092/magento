@@ -72,3 +72,15 @@ atlassian*
 /generated/*
 !/generated/.htaccess
 .DS_Store
+
+# Magento 2
+/app/etc/env.php
+/var/
+/app/code/Magento/
+/app/design/
+/pub/static/
+/generated/
+/vendor/
+/node_modules/
+/pub/media/catalog/product/cache/
+/composer.lock
