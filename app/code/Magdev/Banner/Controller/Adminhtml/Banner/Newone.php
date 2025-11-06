@@ -23,10 +23,4 @@ class Newone extends Action
         $resultPage->getConfig()->getTitle()->prepend(__('Banners'));
         return $resultPage;
     }
-    
-    public function getAdminuserame()
-    {
-        $resultPage = "Test Admin";
-        return $resultPage;
-    }
 }
