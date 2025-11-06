@@ -1,0 +1,57 @@
+
+type Query {
+  banners(filter: BannerFilterInput): [Banner] 
+    @resolver(class: "Magdev\\Banner\\Model\\Resolver\\BannersResolver")
+}
+
+
+type Banner {
+  banner_id: Int
+  title: String
+  image_url: String
+  status: String
+}
+
+input BannerFilterInput {
+  status: Int
+  from_date: String
+  to_date: String
+}
+
+input BannerInput {
+  banner_id: Int
+  title: String!
+  image_url: String!
+  status: Int
+  created_at: String
+  updated_at: String
+}
+
+type Mutation {
+  saveBanner(input: BannerInput!): Banner
+    @resolver(class: "Magdev\\Banner\\Model\\Resolver\\SaveBannerResolver")
+}
+
+type Query {
+  customProductDetails(sku: String!): CustomProduct @resolver(class: "Magdev\\Banner\\Model\\Resolver\\CustomProductDetails")
+}
+
+
+type Mutation {
+  updateProductDetails(input: UpdateProductInput!): CustomProduct
+   @resolver(class: "Magdev\\Banner\\Model\\Resolver\\UpdateProductDetails")
+}
+
+input UpdateProductInput {
+  sku: String!
+  name: String
+  price: Float
+  description: String
+}
+
+type CustomProduct {
+  name: String
+  sku: String
+  price: Float
+  description: String
+}

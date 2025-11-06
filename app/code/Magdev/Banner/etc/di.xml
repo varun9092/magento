@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <!-- Optional: Explicitly define the collection factory -->
+    <type name="Magdev\Banner\Model\ResourceModel\Banner\CollectionFactory" />
+    
+    <!-- Optional: Define interface preferences if you have any -->
+    <!--
+    <preference for="Magdev\Banner\Api\BannerRepositoryInterface" 
+                type="Magdev\Banner\Model\BannerRepository" />
+    -->
+    <type name="Magento\Framework\GraphQl\Schema\Type\Resolver\ResolverInterface">
+        <arguments>
+            <argument name="typeResolvers" xsi:type="array">
+                <item name="updateProductDetails" xsi:type="object">Magdev\Banner\Model\Resolver\UpdateProductDetails</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Magdev\Banner\Model\Banner\DataProvider" type="Magento\Ui\DataProvider\AbstractDataProvider">
+		<arguments>
+			<argument name="collection" xsi:type="object">Magdev\Banner\Model\ResourceModel\Banner\Collection</argument>
+		</arguments>
+	</virtualType>
+
+
+</config>

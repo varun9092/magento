@@ -1,0 +1,9 @@
+<?php
+
+use Magento\Framework\Component\ComponentRegistrar;
+
+ComponentRegistrar::register(
+    ComponentRegistrar::MODULE,
+    'Magdev_Banner',
+    __DIR__
+);
